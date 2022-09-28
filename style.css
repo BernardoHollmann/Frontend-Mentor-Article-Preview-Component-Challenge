@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+/*
+- Very Dark Grayish Blue: hsl(217, 19%, 35%)
+- Desaturated Dark Blue: hsl(214, 17%, 51%)
+- Grayish Blue: hsl(212, 23%, 69%)
+- Light Grayish Blue: hsl(210, 46%, 95%)
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: hsl(210, 46%, 95%);
+}
+
+main{
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 285px minmax(300px, 445px);
+    max-width: 730px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 5px hsla(0, 0%, 0%, 0.02),
+    25px 25px 20px hsla(0, 0%, 0%, 0.03),
+    100px 100px 80px hsla(0, 0%, 0%, 0.05);
+}
+
+section.image{
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+}
+
+section.image img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.content{
+    padding: 1rem 2rem;
+    color: hsl(217, 19%, 35%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+}
+
+section.content h1{
+    font-weight: 700;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+}
+
+section.content blockquote{
+    font-weight: 500;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+}
+
+section.content .user{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+section.content .user .avatar{
+    max-width: 20%;
+    overflow: hidden;
+    padding-right: 1rem;
+}
+
+section.content .user img{
+    border-radius: 50%;
+    width: 100%;
+    object-fit: cover;
+}
+
+section.content .user .share .icon{
+    cursor: pointer;
+    position: absolute;
+    bottom: 7%;
+    right: 16%;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: hsl(210, 46%, 95%);
+    transition: all 0.25s ease;
+}
+  
+section.content .user .share .icon:hover, section.content .user .share .icon.active {
+   background: hsl(214, 17%, 51%);
+   color: hsl(210, 46%, 95%);
+   fill: #fff;
+}
+
+section.content .user h5{
+    font-weight: 700;
+}
+
+section.content .user p{
+    color: hsl(214, 17%, 51%);
+    font-weight: 500;
+    font-size: 11px;
+}
+
+section.content .user .tooltip{
+    position: absolute;
+    bottom: 24%;
+    right: -5%;
+    background-color: hsl(217, 19%, 35%);
+    min-width: 15rem;
+    height: 3rem;
+    color: hsl(210, 46%, 95%);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.30s ease;
+}
+
+.tooltip.active{
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+section.content .user .triangle{
+    width: 20px;
+    height: 20px;
+    background-color: hsl(217, 19%, 35%);
+    position: absolute;
+    bottom: 20%;
+    right: 18%;
+    transform: rotateY(0deg) rotate(45deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.30s ease;
+}
+
+.triangle.active{
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+section.content .user .tooltip ul{
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section.content .user .tooltip ul li{
+    cursor: pointer;
+    width: 12%;
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+        max-width: 294px;
+        overflow: hidden;
+    }
+
+    section.image, section.content{ 
+        border-radius: 0; 
+    }
+
+    section.image{
+        height: 180px;
+    }
+
+    section.content{
+        padding: 30px 28px 20px;
+    }
+
+    section.content h1{
+        font-size: 15px;
+        padding-right: 0;
+    }
+    
+    section.content blockquote{
+        font-size: 12px;
+        padding-right: 0
+    }
+
+    section.content .user .tooltip{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        min-width: 100%;
+        padding-right: 3.2rem;
+        height: 4rem;
+    }
+    
+    section.content .user .triangle{
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    section.content .user .share .icon{
+        bottom: 6%;
+        right: 7%;
+        background-color: hsl(210, 46%, 95%);
+        z-index: 1;
+    }
+}
